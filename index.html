@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Budget & Entries — Billing Ledger</title>
 <link rel="stylesheet" href="style.css" />
-  </head>
+</head>
 <body>
   <div id="loading" class="loading-screen">
     <p class="mono loading-text">LOADING LEDGER…</p>
@@ -25,12 +25,12 @@
           <p class="mono eyebrow muted">ALLOCATED BUDGET</p>
           <div id="budgetDisplay" class="budget-display">
             <button id="budgetBtn" class="budget-btn mono">
-              <span id="budgetValue">0.00 Rs/-</span>
+              <span id="budgetValue">₹0.00</span>
               <svg class="pen-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
             </button>
           </div>
           <div id="budgetEdit" class="budget-edit hidden">
-            <span class="mono dollar">Rs/-</span>
+            <span class="mono dollar">₹</span>
             <input id="budgetInput" type="number" class="mono budget-input" />
           </div>
         </div>
@@ -40,15 +40,15 @@
       <div class="stats-grid">
         <div class="stat-card">
           <p class="mono stat-label">SPENT</p>
-          <p id="statSpent" class="mono stat-value">0 Rs/-</p>
+          <p id="statSpent" class="mono stat-value">$0.00</p>
         </div>
         <div class="stat-card">
           <p class="mono stat-label">REMAINING</p>
-          <p id="statRemaining" class="mono stat-value">0 Rs/-</p>
+          <p id="statRemaining" class="mono stat-value">$0.00</p>
         </div>
         <div class="stat-card">
           <p class="mono stat-label">ENTRIES</p>
-          <p id="statEntries" class="mono stat-value">0 Rs/-</p>
+          <p id="statEntries" class="mono stat-value">0</p>
         </div>
       </div>
 
@@ -98,4 +98,3 @@
   <script src="main.js"></script>
 </body>
 </html>
-
