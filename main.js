@@ -33,8 +33,8 @@ function money(n) {
   const sign = n < 0 ? "\u2212" : "";
   return (
     sign +
-    "$" +
-    Math.abs(n).toLocaleString(undefined, {
+    "\u20B9" +
+    Math.abs(n).toLocaleString("en-IN", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })
