@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Budget & Entries — Billing Ledger</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loading" class="loading-screen">
+    <p class="mono loading-text">LOADING LEDGER…</p>
+  </div>
+
+  <div id="app" class="app hidden">
+    <div class="wrap">
+
+      <!-- Masthead -->
+      <div class="masthead">
+        <div>
+          <p class="mono eyebrow">BILLING LEDGER</p>
+          <h1 class="display title">Budget &amp; Entries</h1>
+        </div>
+
+        <div class="budget-box">
+          <p class="mono eyebrow muted">ALLOCATED BUDGET</p>
+          <div id="budgetDisplay" class="budget-display">
+            <button id="budgetBtn" class="budget-btn mono">
+              <span id="budgetValue">$0.00</span>
+              <svg class="pen-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </button>
+          </div>
+          <div id="budgetEdit" class="budget-edit hidden">
+            <span class="mono dollar">$</span>
+            <input id="budgetInput" type="number" class="mono budget-input" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <p class="mono stat-label">SPENT</p>
+          <p id="statSpent" class="mono stat-value">$0.00</p>
+        </div>
+        <div class="stat-card">
+          <p class="mono stat-label">REMAINING</p>
+          <p id="statRemaining" class="mono stat-value">$0.00</p>
+        </div>
+        <div class="stat-card">
+          <p class="mono stat-label">ENTRIES</p>
+          <p id="statEntries" class="mono stat-value">0</p>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-section">
+        <div class="progress-track">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progressPct" class="mono progress-text">0.0% of budget used</span>
+          <span id="overBudgetTag" class="mono over-budget-tag hidden">OVER BUDGET</span>
+        </div>
+      </div>
+
+      <!-- Add entry -->
+      <div class="add-entry-card">
+        <p class="mono eyebrow muted">NEW ENTRY</p>
+        <div class="add-entry-row">
+          <input id="nameInput" type="text" placeholder="Person name" class="input input-name" />
+          <input id="amountInput" type="number" placeholder="Amount" class="input input-amount mono" />
+          <button id="addBtn" class="add-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Ledger table -->
+      <div class="ledger-table">
+        <div class="ledger-header mono">
+          <span>NAME</span>
+          <span class="align-right">AMOUNT</span>
+          <span class="align-right balance-col">BALANCE</span>
+          <span class="action-col"></span>
+        </div>
+        <div id="ledgerRows"></div>
+        <div id="emptyState" class="empty-state">
+          <p>No entries yet. Add the first line above.</p>
+        </div>
+      </div>
+
+      <p id="saveError" class="mono save-error hidden">Couldn't save changes — they may not persist after reload.</p>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
