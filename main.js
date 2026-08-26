@@ -1,4 +1,3 @@
-
 const STORAGE_KEY = "ledger-state";
 
 let budget = 0;
@@ -42,16 +41,16 @@ function money(n) {
   );
 }
 
-async function loadState() {
+function loadState() {
   try {
-    const result = await window.storage.get(STORAGE_KEY, false);
-    if (result && result.value) {
-      const parsed = JSON.parse(result.value);
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
       budget = parsed.budget || 0;
       entries = parsed.entries || [];
     }
   } catch (e) {
-    // no existing data yet — fine
+    // no existing data yet, or storage unavailable — fine
   } finally {
     loadingEl.classList.add("hidden");
     appEl.classList.remove("hidden");
@@ -59,14 +58,10 @@ async function loadState() {
   }
 }
 
-async function persist() {
+function persist() {
   try {
-    const result = await window.storage.set(
-      STORAGE_KEY,
-      JSON.stringify({ budget, entries }),
-      false
-    );
-    saveError.classList.toggle("hidden", !!result);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ budget, entries }));
+    saveError.classList.add("hidden");
   } catch (e) {
     saveError.classList.remove("hidden");
   }
